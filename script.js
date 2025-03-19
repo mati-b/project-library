@@ -123,3 +123,33 @@ submitButton.addEventListener("click", () => {
     addBookToLibrary();
 });
 
+
+const constrainValidationAPI = (() => {
+    const validationTitle = document.getElementById('title');
+    
+    validationTitle.addEventListener('input', () => {
+        validationTitle.setCustomValidity('');
+        validationTitle.checkValidity();
+    });
+
+    validationTitle.addEventListener('invalid', () => {
+        if (validationTitle.value === '' || validationTitle.value === null) {
+            validationTitle.setCustomValidity('Title cannot be blanck!');
+        }
+    });
+
+    const validationAuthor = document.getElementById('author');
+    
+    validationAuthor.addEventListener('input', () => {
+        validationAuthor.setCustomValidity('');
+        validationAuthor.checkValidity();
+    })
+
+    validationAuthor.addEventListener('invalid', () => {
+        if (validationAuthor.value === '' || validationAuthor.value === null) {
+            validationAuthor.setCustomValidity('Author cannot be blanck!');
+        }
+    })
+
+
+})();
